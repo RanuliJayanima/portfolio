@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranuli Jayarathna | UI/UX & Product Designer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #2E1065;
+        --primary-light: #4C1D95;
+        --secondary: #7C3AED;
+        --secondary-hover: #6D28D9;
+        --accent: #EC4899;
+        --accent-gradient: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+        --surface-dark: #0F0A1C;
+        --surface-card: #18112B;
+        --surface-light: #FAF5FF;
+        --text-main: #0F172A;
+        --text-muted: #64748B;
+        --border: #E2E8F0;
+        --card-border: #F1F5F9;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
+        --shadow-lg: 0 12px 28px -4px rgba(124, 58, 237, 0.12), 0 8px 10px -6px rgba(0,0,0,0.05);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #334155;
+        background: #FDFBFF;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(253, 251, 255, 0.88);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(233, 213, 255, 0.6);
+        padding: 16px 0;
+    }
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--primary);
+    }
+    .logo-badge {
+        width: 34px;
+        height: 34px;
+        background: var(--accent-gradient);
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1rem;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    }
+    .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #475569;
+        font-size: 0.92rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    .nav-links a:hover {
+        color: var(--secondary);
+    }
+    .nav-cta {
+        background: var(--accent-gradient);
+        color: white !important;
+        padding: 8px 18px;
+        border-radius: 999px;
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+    }
+    .nav-cta:hover {
+        opacity: 0.95;
+        transform: translateY(-1px);
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 80px 0 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
+        align-items: center;
+    }
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #F3E8FF;
+        color: var(--secondary);
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+        border: 1px solid #E9D5FF;
+    }
+    .hero-badge .pulse {
+        width: 8px;
+        height: 8px;
+        background: #10B981;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+    .hero-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 3.2rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1.15;
+        margin-bottom: 20px;
+        letter-spacing: -0.8px;
+    }
+    .hero-title .gradient-text {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+        font-size: 1.12rem;
+        color: #475569;
+        margin-bottom: 32px;
+        line-height: 1.68;
+    }
+    .hero-actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 13px 26px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        cursor: pointer;
+    }
+    .btn-primary {
+        background: var(--accent-gradient);
+        color: white;
+        box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.35);
+    }
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -4px rgba(124, 58, 237, 0.45);
+    }
+    .btn-outline {
+        background: white;
+        color: var(--primary);
+        border: 1.5px solid #E2E8F0;
+    }
+    .btn-outline:hover {
+        background: #F8FAFC;
+        border-color: var(--secondary);
+        color: var(--secondary);
+    }
+
+    /* Hero Visual Card */
+    .hero-card {
+        background: white;
+        border-radius: 24px;
+        border: 1px solid rgba(233, 213, 255, 0.8);
+        padding: 28px;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+    }
+    .hero-card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .avatar-placeholder {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, #C084FC, #F472B6);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        font-size: 1.5rem;
+        box-shadow: 0 6px 16px rgba(192, 132, 252, 0.3);
+    }
+    .hero-card-title h3 {
+        font-size: 1.25rem;
+        color: var(--primary);
+        font-weight: 700;
+    }
+    .hero-card-title p {
+        font-size: 0.85rem;
+        color: var(--secondary);
+        font-weight: 600;
+    }
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+    .stat-pill {
+        background: #FAF5FF;
+        border: 1px solid #F3E8FF;
+        padding: 12px 16px;
+        border-radius: 14px;
+    }
+    .stat-pill .num {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .stat-pill .label {
+        font-size: 0.76rem;
+        color: #64748B;
+        font-weight: 600;
+        margin-top: 2px;
+    }
+    .hero-card-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .tool-tag {
+        background: #F1F5F9;
+        color: #475569;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Section Headings */
+    .section-head {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 50px;
+    }
+    .section-tag {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--secondary);
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        margin-bottom: 8px;
+        display: block;
+    }
+    .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.3rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+    }
+    .section-desc {
+        color: #64748B;
+        font-size: 1.02rem;
+    }
+
+    /* Design Process */
+    .process-section {
+        padding: 70px 0;
+        background: white;
+        border-top: 1px solid #F1F5F9;
+        border-bottom: 1px solid #F1F5F9;
+    }
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+    }
+    .process-card {
+        background: #FCFAFF;
+        border: 1px solid #F3E8FF;
+        border-radius: 16px;
+        padding: 22px 18px;
+        position: relative;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .process-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: #D8B4FE;
+    }
+    .process-num {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #E9D5FF;
+        line-height: 1;
+        margin-bottom: 12px;
+    }
+    .process-card h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 8px;
+    }
+    .process-card p {
+        font-size: 0.82rem;
+        color: #64748B;
+        line-height: 1.48;
+    }
+
+    /* Case Studies Section */
+    .case-studies {
+        padding: 85px 0;
+    }
+    .case-card {
+        background: white;
+        border-radius: 24px;
+        border: 1px solid #F1F5F9;
+        overflow: hidden;
+        margin-bottom: 48px;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+    }
+    .case-card:hover {
+        box-shadow: var(--shadow-lg);
+        border-color: #E9D5FF;
+    }
+    .case-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .case-content {
+        padding: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .case-badge {
+        display: inline-block;
+        background: #F3E8FF;
+        color: var(--secondary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 14px;
+        align-self: flex-start;
+    }
+    .case-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 12px;
+        line-height: 1.25;
+    }
+    .case-summary {
+        font-size: 0.95rem;
+        color: #475569;
+        margin-bottom: 22px;
+        line-height: 1.6;
+    }
+    .case-pillars {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 26px;
+    }
+    .pillar-box {
+        background: #FAF5FF;
+        border-radius: 10px;
+        padding: 10px 14px;
+        border-left: 3px solid var(--secondary);
+    }
+    .pillar-box strong {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .pillar-box span {
+        font-size: 0.83rem;
+        color: #475569;
+    }
+    .case-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 26px;
+    }
+    .case-tag {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        color: #64748B;
+        font-size: 0.74rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 6px;
+    }
+
+    /* Case Visual Graphic / Mockup */
+    .case-visual {
+        background: linear-gradient(135deg, #2E1065 0%, #180836 100%);
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .case-visual::after {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+    
+    /* Device Mockups via CSS & SVG */
+    .device-mockup {
+        width: 100%;
+        max-width: 440px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        padding: 18px;
+        position: relative;
+        z-index: 2;
+    }
+    .device-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+    .device-title {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-left: 8px;
+        font-weight: 600;
+        font-family: monospace;
+    }
+
+    /* UI Screen Simulation */
+    .ui-screen {
+        background: #110B22;
+        border-radius: 12px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .screen-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+    .screen-brand {
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: white;
+        letter-spacing: -0.3px;
+    }
+    .screen-badge {
+        font-size: 0.68rem;
+        background: rgba(236,72,153,0.25);
+        color: #F472B6;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+    }
+    .ui-metric-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    .metric-top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: #CBD5E1;
+        margin-bottom: 6px;
+    }
+    .metric-value {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38BDF8;
+    }
+    .progress-bar {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-top: 8px;
+    }
+    .progress-fill {
+        height: 100%;
+        background: var(--accent-gradient);
+        border-radius: 999px;
+    }
+    .ui-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        font-size: 0.75rem;
+        color: #E2E8F0;
+    }
+
+    /* Skills & Tooling Grid */
+    .skills-section {
+        padding: 70px 0;
+        background: white;
+    }
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .skill-card {
+        background: #FCFAFF;
+        border: 1px solid #F3E8FF;
+        border-radius: 18px;
+        padding: 28px;
+        transition: transform 0.2s ease;
+    }
+    .skill-card:hover {
+        transform: translateY(-3px);
+        border-color: #D8B4FE;
+    }
+    .skill-icon {
+        width: 48px;
+        height: 48px;
+        background: #F3E8FF;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+        color: var(--secondary);
+    }
+    .skill-card h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 12px;
+    }
+    .skill-list {
+        list-style: none;
+    }
+    .skill-list li {
+        font-size: 0.88rem;
+        color: #475569;
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 16px;
+    }
+    .skill-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 800;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 85px 0;
+        background: #FAF5FF;
+    }
+    .about-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 48px;
+        align-items: center;
+    }
+    .about-card {
+        background: white;
+        border-radius: 24px;
+        padding: 36px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid #E9D5FF;
+    }
+    .about-card h3 {
+        font-size: 1.4rem;
+        color: var(--primary);
+        font-weight: 800;
+        margin-bottom: 16px;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .about-text p {
+        font-size: 0.98rem;
+        color: #475569;
+        margin-bottom: 18px;
+        line-height: 1.65;
+    }
+    .about-highlights {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 24px;
+    }
+    .highlight-item {
+        background: #FAF5FF;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border-left: 3px solid var(--secondary);
+    }
+    .highlight-item strong {
+        display: block;
+        font-size: 0.82rem;
+        color: var(--primary);
+    }
+    .highlight-item span {
+        font-size: 0.78rem;
+        color: #64748B;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--surface-dark);
+        color: white;
+        padding: 60px 0 30px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-brand h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+    }
+    .footer-brand p {
+        color: #94A3B8;
+        max-width: 440px;
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+    .footer-contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #CBD5E1;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .footer-contact-item:hover {
+        color: #F472B6;
+    }
+    .footer-bottom {
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #64748B;
+        font-size: 0.84rem;
+    }
+
+    @media (max-width: 900px) {
+        .hero-grid, .case-grid, .skills-grid, .about-grid, .footer-grid {
+            grid-template-columns: 1fr;
+        }
+        .process-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .hero-title {
+            font-size: 2.4rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-badge">RJ</span>
+                <span>Ranuli Jayarathna</span>
+            </a>
+            <div class="nav-links">
+                <a href="#case-studies">Case Studies</a>
+                <a href="#process">Design Process</a>
+                <a href="#skills">Skills</a>
+                <a href="#about">About</a>
+                <a href="Ranuli_Jayarathna_CV_UI_UX_Designer.pdf" target="_blank" class="nav-cta">Download CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge">
+                        <span class="pulse"></span>
+                        <span>Available for UI/UX & Product Design Roles</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Designing intuitive digital experiences with <span class="gradient-text">human empathy</span> & data intelligence.
+                    </h1>
+                    <p class="hero-desc">
+                        Hi, I'm <strong>Ranuli Jayarathna</strong> — a UI/UX & Product Designer specializing in Business Intelligence (Honors) from Uva Wellassa University. I translate complex workflows into frictionless, aesthetically polished interfaces for mobile, web, and enterprise platforms.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#case-studies" class="btn btn-primary">
+                            Explore Case Studies ↓
+                        </a>
+                        <a href="Ranuli_Jayarathna_CV_UI_UX_Designer.pdf" target="_blank" class="btn btn-outline">
+                            View UI/UX Resume (PDF)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Card -->
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="avatar-placeholder">RJ</div>
+                        <div class="hero-card-title">
+                            <h3>Ranuli Jayarathna</h3>
+                            <p>UI/UX & Product Designer</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-pill">
+                            <div class="num">03+</div>
+                            <div class="label">Major UX Case Studies</div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="num">Enterprise</div>
+                            <div class="label">Fintech Internship (PLC)</div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="num">Figma</div>
+                            <div class="label">Interactive Prototypes</div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="num">BICT (Hons)</div>
+                            <div class="label">Business Intelligence</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-tools">
+                        <span class="tool-tag">🎨 Figma</span>
+                        <span class="tool-tag">📱 Flutter UI</span>
+                        <span class="tool-tag">📐 Wireframing</span>
+                        <span class="tool-tag">🔍 Usability Testing</span>
+                        <span class="tool-tag">⚡ HTML/CSS/JS</span>
+                        <span class="tool-tag">📋 Jira Design Handoff</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">Human-Centered Methodology</span>
+                <h2 class="section-title">My Design Process</h2>
+                <p class="section-desc">A structured, iterative workflow transforming ambiguity into validated, intuitive digital interfaces.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-num">01</div>
+                    <h4>Discover</h4>
+                    <p>Contextual user interviews, stakeholder discovery sessions, requirement elicitation, and competitor benchmarking.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">02</div>
+                    <h4>Define</h4>
+                    <p>Synthesizing personas, mapping user journey paths, identifying friction points, and structuring information architecture.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">03</div>
+                    <h4>Ideate</h4>
+                    <p>Rapid low-fidelity sketches, user task flows, layout explorations, and iterative wireframe reviews in Figma.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">04</div>
+                    <h4>Prototype</h4>
+                    <p>Building high-fidelity interactive prototypes, responsive design tokens, component libraries, and microcopy.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">05</div>
+                    <h4>Validate</h4>
+                    <p>Usability audits, error validation testing, design QA with developers via Jira, and user guide preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Case Studies -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">Selected Works</span>
+                <h2 class="section-title">Featured Case Studies</h2>
+                <p class="section-desc">End-to-end design deep-dives solving real user problems across mobile, web, and enterprise platforms.</p>
+            </div>
+
+            <!-- Case Study 1: Ecosense -->
+            <div class="case-card">
+                <div class="case-grid">
+                    <div class="case-content">
+                        <span class="case-badge">Mobile App • AI Diagnostic UX</span>
+                        <h3 class="case-title">Ecosense – AI-Powered Vehicle Emission Diagnostic Platform</h3>
+                        <p class="case-summary">
+                            Diesel vehicle owners and inspection officers in Sri Lanka frequently face test failure without understanding root causes. Ecosense transforms cryptic paper test reports into instant, visually understandable mobile diagnoses with actionable maintenance advice.
+                        </p>
+
+                        <div class="case-pillars">
+                            <div class="pillar-box">
+                                <strong>My Role</strong>
+                                <span>Lead UI/UX & Mobile Designer</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Platform & Tech</strong>
+                                <span>Flutter, Figma, Python ML, Azure</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Core Challenge</strong>
+                                <span>Making complex OCR test data simple</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Key Solution</strong>
+                                <span>Scan-to-Gauge Diagnostic Dashboard</span>
+                            </div>
+                        </div>
+
+                        <div class="case-tags">
+                            <span class="case-tag">Figma Wireframing</span>
+                            <span class="case-tag">Mobile UI in Flutter</span>
+                            <span class="case-tag">User Journey Mapping</span>
+                            <span class="case-tag">Data Visualization</span>
+                            <span class="case-tag">Usability Testing</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-outline" style="align-self: flex-start;">
+                            Request Case Study Walkthrough →
+                        </a>
+                    </div>
+
+                    <!-- Visual Representation -->
+                    <div class="case-visual">
+                        <div class="device-mockup">
+                            <div class="device-header">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="device-title">ecosense-mobile-ui.fig</span>
+                            </div>
+                            <div class="ui-screen">
+                                <div class="screen-nav">
+                                    <span class="screen-brand">ECOSENSE DIAGNOSTICS</span>
+                                    <span class="screen-badge">Scan Verified</span>
+                                </div>
+                                <div class="ui-metric-card">
+                                    <div class="metric-top">
+                                        <span>Diesel Smoke Opacity (K-Value)</span>
+                                        <span style="color: #F87171; font-weight:700;">FAIL (68%)</span>
+                                    </div>
+                                    <div class="metric-value">2.45 m⁻¹ <span style="font-size:0.75rem; color:#94A3B8;">/ Max 1.8 m⁻¹</span></div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 78%;"></div>
+                                    </div>
+                                </div>
+                                <div class="ui-list-item">
+                                    <span>🔍 Primary Suspect: Air Filter Clogging</span>
+                                    <span style="color:#38BDF8; font-weight:600;">92% Match</span>
+                                </div>
+                                <div class="ui-list-item">
+                                    <span>⚙️ Secondary: Fuel Injector Wear</span>
+                                    <span style="color:#A78BFA; font-weight:600;">64% Match</span>
+                                </div>
+                                <div style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 8px; padding: 10px; margin-top: 10px; font-size: 0.72rem; color: #34D399;">
+                                    💡 <strong>Recommended Action:</strong> Replace air filter cartridge and re-test within 14 days to pass emission standards.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2: People's Leasing -->
+            <div class="case-card">
+                <div class="case-grid">
+                    <div class="case-content">
+                        <span class="case-badge">Enterprise Fintech • Design System</span>
+                        <h3 class="case-title">People's Leasing & Finance PLC – Internal Systems UX Redesign</h3>
+                        <p class="case-summary">
+                            Internal lease and loan processing portals suffered from cluttered data tables, high human data-entry error rates, and steep training curves. Redesigned core credit officer workflows in Figma, standardizing design components and creating illustrated user guides.
+                        </p>
+
+                        <div class="case-pillars">
+                            <div class="pillar-box">
+                                <strong>My Role</strong>
+                                <span>Intern UI/UX & Business Analyst</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Duration</strong>
+                                <span>April 2025 – October 2025</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Impact</strong>
+                                <span>Streamlined validation & reduced errors</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Deliverables</strong>
+                                <span>Wireframes, Prototypes, User Guides</span>
+                            </div>
+                        </div>
+
+                        <div class="case-tags">
+                            <span class="case-tag">Figma Component Libraries</span>
+                            <span class="case-tag">Error Validation</span>
+                            <span class="case-tag">Task Flow Optimization</span>
+                            <span class="case-tag">Jira Agile Sprints</span>
+                            <span class="case-tag">SOP Documentation</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-outline" style="align-self: flex-start;">
+                            Discuss Enterprise Experience →
+                        </a>
+                    </div>
+
+                    <!-- Visual Representation -->
+                    <div class="case-visual" style="background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);">
+                        <div class="device-mockup">
+                            <div class="device-header">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="device-title">plc-lease-portal-v2.fig</span>
+                            </div>
+                            <div class="ui-screen" style="background: #0B0F19;">
+                                <div class="screen-nav">
+                                    <span class="screen-brand">LEASE APPLICATION VERIFIER</span>
+                                    <span class="screen-badge" style="background:rgba(56,189,248,0.2); color:#38BDF8;">Sprint 14</span>
+                                </div>
+                                <div class="ui-metric-card" style="border-left: 3px solid #38BDF8;">
+                                    <div class="metric-top">
+                                        <span>Customer Verification Status</span>
+                                        <span style="color:#34D399; font-weight:700;">APPROVED</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: white; font-weight:600; margin-top:4px;">
+                                        Vehicle Lease #LK-2025-9842
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #94A3B8; margin-top:2px;">
+                                        3-Way Data Reconciliation Complete
+                                    </div>
+                                </div>
+                                <div class="ui-list-item">
+                                    <span>📑 NIC & Identity Validation</span>
+                                    <span style="color:#34D399;">✓ Verified</span>
+                                </div>
+                                <div class="ui-list-item">
+                                    <span>💳 CRIB Credit Assessment</span>
+                                    <span style="color:#34D399;">✓ Score: 780</span>
+                                </div>
+                                <div class="ui-list-item">
+                                    <span>🚗 Asset Valuation Match</span>
+                                    <span style="color:#34D399;">✓ 85% LTV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3: Sparkle -->
+            <div class="case-card">
+                <div class="case-grid">
+                    <div class="case-content">
+                        <span class="case-badge">Web & E-Commerce • Responsive UX</span>
+                        <h3 class="case-title">Sparkle – Conversion-Focused Fashion Web Platform</h3>
+                        <p class="case-summary">
+                            Architected an intuitive, mobile-responsive e-commerce user experience aimed at eliminating catalog search fatigue and checkout abandonment. Designed clean visual hierarchies, instant search filtering, and a simplified 3-step checkout flow.
+                        </p>
+
+                        <div class="case-pillars">
+                            <div class="pillar-box">
+                                <strong>My Role</strong>
+                                <span>UI/UX & Frontend Designer</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Technologies</strong>
+                                <span>HTML5, CSS3, JavaScript, PHP, MySQL</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Focus</strong>
+                                <span>Micro-interactions & Responsive Grid</span>
+                            </div>
+                            <div class="pillar-box">
+                                <strong>Outcome</strong>
+                                <span>Frictionless product-to-cart journey</span>
+                            </div>
+                        </div>
+
+                        <div class="case-tags">
+                            <span class="case-tag">Responsive Web Design</span>
+                            <span class="case-tag">Product Filter UX</span>
+                            <span class="case-tag">Cart Flow Optimization</span>
+                            <span class="case-tag">Frontend Implementation</span>
+                        </div>
+
+                        <a href="#contact" class="btn btn-outline" style="align-self: flex-start;">
+                            View Prototype Details →
+                        </a>
+                    </div>
+
+                    <!-- Visual Representation -->
+                    <div class="case-visual" style="background: linear-gradient(135deg, #4A044E 0%, #1F0730 100%);">
+                        <div class="device-mockup">
+                            <div class="device-header">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="device-title">sparkle-shop-responsive.fig</span>
+                            </div>
+                            <div class="ui-screen" style="background: #190B22;">
+                                <div class="screen-nav">
+                                    <span class="screen-brand">SPARKLE CLOTHING</span>
+                                    <span class="screen-badge" style="background:rgba(244,114,182,0.2); color:#F472B6;">Cart (2)</span>
+                                </div>
+                                <div class="ui-metric-card" style="display:flex; gap:12px; align-items:center;">
+                                    <div style="width:48px; height:48px; background:rgba(255,255,255,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
+                                        👗
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.8rem; font-weight:700; color:white;">Floral Summer Dress</div>
+                                        <div style="font-size: 0.7rem; color:#94A3B8;">Size: M • Color: Rose Pink</div>
+                                        <div style="font-size: 0.85rem; font-weight:800; color:#F472B6; margin-top:2px;">Rs. 4,850</div>
+                                    </div>
+                                </div>
+                                <div style="background: var(--accent-gradient); color:white; border-radius:8px; text-align:center; padding:9px; font-weight:700; font-size:0.75rem; margin-top:10px;">
+                                    PROCEED TO EXPRESS CHECKOUT →
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills & Tools -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">Competency Stack</span>
+                <h2 class="section-title">Skills & Tooling</h2>
+                <p class="section-desc">A versatile blend of product design, technical frontend knowledge, and human-centered methodologies.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Product & UI Design</h3>
+                    <ul class="skill-list">
+                        <li>Figma (Components, Variants, Auto-layout)</li>
+                        <li>Low & High-Fidelity Wireframing</li>
+                        <li>Interactive Prototyping & Micro-interactions</li>
+                        <li>Design Systems, Tokens & Style Guides</li>
+                        <li>Responsive Layouts for Mobile & Desktop</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🧠</div>
+                    <h3>UX Research & Strategy</h3>
+                    <ul class="skill-list">
+                        <li>User Journey & Empathy Mapping</li>
+                        <li>Information Architecture & Task Flows</li>
+                        <li>Usability Testing & Heuristic Evaluation</li>
+                        <li>Functional Error Validation & QA</li>
+                        <li>UX Writing, Microcopy & User Guides</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Technical & Frontend</h3>
+                    <ul class="skill-list">
+                        <li>HTML5, CSS3, Modern JavaScript</li>
+                        <li>Flutter Mobile UI Components</li>
+                        <li>SQL (MySQL) & MongoDB NoSQL Schemas</li>
+                        <li>Jira Agile Sprint Workflows & Handoff</li>
+                        <li>Git & GitHub Version Control</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Ranuli Jayarathna</h3>
+                    <p style="color:var(--secondary); font-weight:700; font-size:0.95rem; margin-bottom:14px;">
+                        ICT Honors Graduate in Business Intelligence
+                    </p>
+                    <div class="about-text">
+                        <p>
+                            I hold a unique interdisciplinary background spanning <strong>Business Intelligence</strong>, <strong>Human Resource Management (CIPM)</strong>, and <strong>English Literature (Aquinas)</strong>.
+                        </p>
+                        <p>
+                            This blend gives me an analytical edge to unpack complex data workflows, while maintaining deep empathy for users and crafting clear, intuitive microcopy.
+                        </p>
+                    </div>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <strong>Uva Wellassa University</strong>
+                            <span>BICT (Hons) Degree</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Batch Representative</strong>
+                            <span>Student Cohort Leader (2024)</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>CIPM Sri Lanka</strong>
+                            <span>Adv. Certificate in HRM</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Aquinas College</strong>
+                            <span>Diploma in English Literature</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="section-tag">Design Philosophy</span>
+                    <h2 class="section-title">Bridging Data Logic with Human Delight</h2>
+                    <p style="color:#475569; font-size:1.05rem; line-height:1.7; margin-bottom:20px;">
+                        "Good design doesn't just look visually appealing; it clarifies intent, removes friction, and empowers users to accomplish their goals effortlessly. Having studied Business Intelligence, I design interfaces rooted in user data and verified through real-world usability testing."
+                    </p>
+                    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                        <a href="Ranuli_Jayarathna_CV_UI_UX_Designer.pdf" target="_blank" class="btn btn-primary">
+                            Download UI/UX Resume
+                        </a>
+                        <a href="mailto:ranulijayarathna@gmail.com" class="btn btn-outline">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Let's build meaningful products together.</h2>
+                    <p>
+                        I'm currently seeking opportunities as an <strong>Intern UI/UX Designer</strong> or <strong>Junior Product Designer</strong> where I can contribute to user-centric digital products.
+                    </p>
+                    <div style="display:flex; gap:12px;">
+                        <a href="mailto:ranulijayarathna@gmail.com" class="btn btn-primary" style="padding:10px 20px; font-size:0.88rem;">
+                            ✉️ Send Me An Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-contacts">
+                    <a href="mailto:ranulijayarathna@gmail.com" class="footer-contact-item">
+                        <span>✉️ ranulijayarathna@gmail.com</span>
+                    </a>
+                    <a href="tel:+94762742829" class="footer-contact-item">
+                        <span>📞 +94 76 274 2829</span>
+                    </a>
+                    <a href="https://linkedin.com/in/ranuli-jayarathna" target="_blank" class="footer-contact-item">
+                        <span>💼 linkedin.com/in/ranuli-jayarathna</span>
+                    </a>
+                    <a href="https://github.com/RanuliJayanima" target="_blank" class="footer-contact-item">
+                        <span>🐙 github.com/RanuliJayanima</span>
+                    </a>
+                    <div class="footer-contact-item" style="color:#94A3B8;">
+                        <span>📍 197/2, Siyane Road, Gampaha, Sri Lanka</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 Ranuli Jayarathna. Built for UI/UX & Product Design.</span>
+                <span>Designed with Figma & Code</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
